@@ -69,7 +69,7 @@ h6 {
   overflow-wrap: break-word;
 }
 
-@media screen and (max-width: 427.9px) {
+@media screen and (min-width: 374.98px) {
   body {
     display: flex;
     flex-direction: column;
@@ -162,7 +162,7 @@ h6 {
   .header-name {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100vw;
     gap: 23px;
     text-align: center;
@@ -181,10 +181,9 @@ h6 {
   .header-proUp {
     display: grid;
     grid-template-columns: auto auto;
-    width: 308px;
     height: 146px;
     gap: 10px;
-    margin-top: 51px;
+    margin-top: 48px;
     margin-left: 78px;
   }
   .header-proUp_svg {
@@ -211,12 +210,11 @@ h6 {
 
   .header-proDown {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 25px auto;
     height: 200px;
-    width: 300px;
     gap: 10px;
-    margin-top: 48px;
-    margin-left: 65px;
+    margin-top: 40px;
+    margin-left: 60px;
   }
   .header-proDown_svg {
     display: flex;
@@ -283,7 +281,6 @@ h6 {
   }
 
   .content-top {
-    width: 386px;
     background: transparent;
     border-bottom: 2px solid var(--colorpr);
     border-right: 2px solid var(--colorpr);
