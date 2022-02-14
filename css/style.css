@@ -425,6 +425,22 @@ h6 {
     border-radius: 10px 0px 0px 10px;
     margin-right: 10px;
   }
+  .skill-r > .skill-title {
+    position: relative;
+    text-align: left;
+    padding-left: 16px;
+  }
+  .skill-r > .skill-title::after {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: var(--colorpr);
+  }
   .skill-r-top {
     position: relative;
   }
@@ -457,11 +473,26 @@ h6 {
     margin-left: 10px;
   }
   .skill-l > .skill-title {
+    position: relative;
     text-align: right;
     padding-right: 16px;
   }
+  .skill-l > .skill-title::after {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: var(--colorpr);
+  }
   .skill-l-fix {
     position: relative;
+  }
+  .skill-l-fix > .skill-sub {
+    padding-left: 40px;
   }
   .skill-l-fix::after {
     content: "";
@@ -490,6 +521,7 @@ h6 {
     font-size: 1.5625em;
     color: var(--colorpr);
     padding-left: 16px;
+    justify-content: center;
   }
   .skill-icon {
     display: flex;
