@@ -4,22 +4,43 @@
 		flex-direction: column;
 		gap: 20px;
 		width: 100vw;
+		height: 300vh;
 	}
 	.header {
 		width: 100vw;
-		height: 950px;
-		background-image: url(../image/index/Line.svg);
-		background-repeat: no-repeat;
-		background-size: 100vw;
-		background-position: 0 48px;
 	}
 	.header-nav {
 		display: flex;
+		position: relative;
 		width: 100vw;
 		padding: 16px;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+		&::after {
+			position: absolute;
+			content: '';
+			width: calc(100vw - 16px);
+			height: 80px;
+			left: 0px;
+			top: 56px;
+			background: transparent;
+			border-top: 1px solid var(--colorpr);
+			border-right: 1px solid var(--colorpr);
+			border-bottom: 1px solid var(--colorpr);
+			border-radius: 0px 10px 10px 0px;
+			z-index: -2;
+		}
+		&::before {
+			position: absolute;
+			content: '';
+			width: 40px;
+			height: 105px;
+			left: 0px;
+			top: 25px;
+			background: var(--wcolor);
+			z-index: -1;
+		}
 		.change-page {
 			display: flex;
 			height: 48px;
@@ -86,9 +107,9 @@
 	.header-name {
 		display: flex;
 		flex-direction: column;
-		margin-top: 20px;
+		margin-top: 25px;
 		width: 100vw;
-		gap: 23px;
+		gap: 15px;
 		text-align: center;
 		& > h1 {
 			@include b25PX;
@@ -97,19 +118,37 @@
 		& > p {
 			@include n20PX;
 			color: $dBlue2;
+			border-bottom: 1px solid var(--colorpr);
 		}
 	}
+	.header-profile {
+		width: 100vw;
+		padding: 0px 16px;
+	}
 	.header-proUp {
+		position: relative;
 		display: grid;
-		grid-template-columns: auto auto;
-		height: 146px;
+		grid-template-columns: 25px auto;
 		gap: 10px;
-		margin-top: 48px;
-		margin-left: 78px;
+		margin: 0 auto;
+		padding: 30px 16px 16px 16px;
+		border-left: 1px solid var(--colorpr);
+		border-bottom-left-radius: 10px;
+		&::before {
+			position: absolute;
+			content: '';
+			width: 10px;
+			height: 15px;
+			left: 0px;
+			bottom: 0px;
+			border-bottom: 1px solid var(--colorpr);
+			border-bottom-left-radius: 10px;
+		}
 		&_svg {
 			display: flex;
 			flex-direction: column;
 			gap: 24px;
+			position: relative;
 			& > svg {
 				& > path:first-child {
 					fill: var(--colorpr);
@@ -117,6 +156,17 @@
 				& > path {
 					fill: var(--colorse);
 				}
+			}
+			&::after {
+				position: absolute;
+				content: '';
+				width: 8px;
+				height: 8px;
+				left: -20px;
+				top: 10px;
+				border-radius: 50%;
+				background: var(--colorpr);
+				box-shadow: 0px 50px 0px var(--colorpr), 0px 100px 0px var(--colorpr);
 			}
 		}
 		&_text {
@@ -131,11 +181,35 @@
 	}
 	.header-proDown {
 		display: grid;
+		position: relative;
 		grid-template-columns: 25px auto;
-		height: 200px;
 		gap: 10px;
-		margin-top: 40px;
-		margin-left: 60px;
+		padding: 0px 16px 16px 16px;
+		margin-top: 16px;
+		margin-left: 20px;
+		border-left: 1px solid var(--colorpr);
+		&::before {
+			position: absolute;
+			content: '';
+			width: 10px;
+			height: 30px;
+			left: -10px;
+			top: -17px;
+			border-top: 1px solid var(--colorpr);
+			border-right: 1px solid var(--colorpr);
+			border-top-right-radius: 10px;
+		}
+		&::after {
+			position: absolute;
+			content: '';
+			width: 40px;
+			height: 30px;
+			left: -40px;
+			bottom: -10px;
+			border-bottom: 1px solid var(--colorpr);
+			border-right: 1px solid var(--colorpr);
+			border-bottom-right-radius: 10px;
+		}
 		&_svg {
 			display: flex;
 			flex-direction: column;
@@ -147,6 +221,18 @@
 				& > path {
 					fill: var(--colorse);
 				}
+			}
+			&::after {
+				position: absolute;
+				content: '';
+				width: 8px;
+				height: 8px;
+				left: -4px;
+				top: 8px;
+				border-radius: 50%;
+				background: var(--colorpr);
+				box-shadow: 0px 45px var(--colorpr), 0px 89px var(--colorpr),
+					0px 133px var(--colorpr), 0px 180px var(--colorpr);
 			}
 			& svg:nth-child(2) {
 				position: relative;
@@ -193,23 +279,47 @@
 		}
 	}
 	.next {
+		padding: 16px 0px;
 		& > svg {
 			fill: var(--colorpr);
-			margin: 34px auto;
+			margin: 0px auto;
 		}
 	}
 	.contents {
 		width: 100vw;
+		padding: 16px;
 	}
 	.content-top {
+		position: relative;
 		background: transparent;
 		border-bottom: 2px solid var(--colorpr);
-		border-right: 2px solid var(--colorpr);
-		border-bottom-right-radius: 10px;
+		border-left: 2px solid var(--colorpr);
+		border-bottom-left-radius: 10px;
 		margin: 0 auto;
-		padding: 5px 30px;
+		padding: 16px 16px;
+		&::before {
+			position: absolute;
+			content: '';
+			width: 20px;
+			height: 30px;
+			left: -20px;
+			top: -15px;
+			border-top: 2px solid var(--colorpr);
+			border-right: 2px solid var(--colorpr);
+			border-top-right-radius: 10px;
+		}
+		&::after {
+			position: absolute;
+			content: '';
+			width: 17px;
+			height: 1px;
+			right: -16px;
+			bottom: -2px;
+			border-bottom: 2px solid var(--colorpr);
+		}
 		& > p {
 			text-align: justify;
+			color: var(--colorpr);
 		}
 	}
 }
