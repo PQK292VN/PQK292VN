@@ -75,7 +75,7 @@ h6 {
     flex-direction: column;
     gap: 20px;
     width: 100vw;
-    height: 300vh;
+    height: 1000%;
   }
 
   .header {
@@ -402,6 +402,106 @@ h6 {
   .content-top > p {
     text-align: justify;
     color: var(--colorpr);
+  }
+
+  .content-skills > h3 {
+    text-align: center;
+    padding: 50px 0px 16px 0px;
+    font-weight: 700;
+    font-size: 1.875em;
+    color: var(--colorpr);
+  }
+
+  .skill {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px 0px;
+  }
+  .skill-r {
+    border: 1px solid var(--colorpr);
+    border-right: none;
+    border-top: none;
+    border-radius: 10px 0px 0px 10px;
+    margin-right: 10px;
+  }
+  .skill-r-top {
+    position: relative;
+  }
+  .skill-r-top::after {
+    content: "";
+    width: 100vw;
+    height: 100%;
+    top: 0px;
+    position: absolute;
+    border-top: 1px solid var(--colorpr);
+    border-top-left-radius: 10px;
+  }
+  .skill-r-down {
+    position: relative;
+  }
+  .skill-r-down::after {
+    content: "";
+    width: 100vw;
+    height: 100%;
+    bottom: -1px;
+    position: absolute;
+    border-bottom: 1px solid var(--colorpr);
+    border-bottom-left-radius: 10px;
+  }
+  .skill-l {
+    border: 1px solid var(--colorpr);
+    border-left: none;
+    border-top: none;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 10px;
+  }
+  .skill-l > .skill-title {
+    text-align: right;
+    padding-right: 16px;
+  }
+  .skill-l-fix {
+    position: relative;
+  }
+  .skill-l-fix::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    top: -1px;
+    right: -1px;
+    position: absolute;
+    border-top: 1px solid var(--colorpr);
+    border-right: 1px solid var(--colorpr);
+    border-top-right-radius: 10px;
+  }
+  .skill-l-fix::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    bottom: -50px;
+    left: -10px;
+    position: absolute;
+    border-top: 1px solid var(--colorpr);
+    border-left: 1px solid var(--colorpr);
+    border-top-left-radius: 10px;
+  }
+  .skill-title {
+    font-weight: 500;
+    font-size: 1.5625em;
+    color: var(--colorpr);
+    padding-left: 16px;
+  }
+  .skill-icon {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .skill-sub {
+    font-weight: 400;
+    font-size: 0.875em;
+    color: var(--colorse);
+    padding-left: 50px;
   }
 }
 
