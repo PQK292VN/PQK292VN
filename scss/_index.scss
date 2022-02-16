@@ -5,6 +5,10 @@
 		gap: 20px;
 		width: 100vw;
 		height: 1000%;
+		background: var(--wcolor);
+	}
+	* > svg {
+		fill: var(--colorpr);
 	}
 	.header {
 		width: 100vw;
@@ -56,35 +60,60 @@
 				box-shadow: 0px 0px 5px rgba(0, 7, 171, 0.5);
 				justify-content: center;
 				align-items: center;
-				& svg {
-					position: relative;
-					& path:first-child {
-						fill: var(--colorpr);
-					}
-					& path:last-child {
-						fill: var(--colorse);
-					}
-				}
 			}
 			& span {
 				@include b20PX;
 				color: var(--colorpr);
 			}
 		}
-		.change-mode {
+		.theme-switch-wrapper {
 			display: flex;
-			justify-content: center;
 			align-items: center;
-			width: 40px;
-			height: 40px;
-			background: var(--wcolor);
-			border: 1px solid var(--colorpr);
-			box-sizing: border-box;
-			border-radius: 100%;
-			box-shadow: 0px 0px 5px rgba(204, 239, 252, 0.5);
-			& > svg > path {
-				fill: var(--colorpr);
+			position: absolute;
+			top: 25px;
+			right: 16px;
+			z-index: 1000;
+		}
+		.theme-switch {
+			display: inline-block;
+			height: 28px;
+			position: relative;
+			width: 56px;
+		}
+		.theme-switch input {
+			display: none;
+		}
+		.slider {
+			background-color: var(--colorse3);
+			bottom: 0;
+			cursor: pointer;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			transition: 0.4s;
+			&:before {
+				background-color: var(--colorpr);
+				bottom: 1px;
+				content: '';
+				height: 26px;
+				left: 1px;
+				position: absolute;
+				transition: 0.4s;
+				width: 26px;
 			}
+		}
+		input:checked + .slider {
+			background-color: var(--colorse3);
+		}
+		input:checked + .slider:before {
+			transform: translateX(27px);
+		}
+		.slider.round {
+			border-radius: 100rem;
+		}
+		.slider.round:before {
+			border-radius: 50%;
 		}
 	}
 	.header-avatar {
@@ -116,7 +145,7 @@
 		}
 		& > p {
 			@include n20PX;
-			color: $dBlue2;
+			color: var(--colorse);
 			border-bottom: 2px solid var(--colorpr);
 		}
 	}
@@ -148,14 +177,6 @@
 			flex-direction: column;
 			gap: 24px;
 			position: relative;
-			& > svg {
-				& > path:first-child {
-					fill: var(--colorpr);
-				}
-				& > path {
-					fill: var(--colorse);
-				}
-			}
 			&::after {
 				position: absolute;
 				content: '';
@@ -213,14 +234,6 @@
 			display: flex;
 			flex-direction: column;
 			gap: 25px;
-			& > svg {
-				& > path:first-child {
-					fill: var(--colorpr);
-				}
-				& > path {
-					fill: var(--colorse);
-				}
-			}
 			&::after {
 				position: absolute;
 				content: '';
@@ -232,39 +245,6 @@
 				background: var(--colorpr);
 				box-shadow: 0px 45px var(--colorpr), 0px 89px var(--colorpr),
 					0px 133px var(--colorpr), 0px 180px var(--colorpr);
-			}
-			& svg:nth-child(2) {
-				position: relative;
-				& path:nth-child(1) {
-					fill: var(--colorpr);
-				}
-				& path:nth-child(2) {
-					fill: var(--colorse);
-				}
-				& path:nth-child(3) {
-					fill: var(--colorse3);
-				}
-				& path:nth-child(4) {
-					fill: var(--colorse2);
-				}
-				& path:nth-child(5) {
-					fill: var(--colorse1);
-				}
-			}
-			& svg:nth-child(3) {
-				position: relative;
-				& path:nth-child(1) {
-					fill: var(--colorpr);
-				}
-				& path:nth-child(3) {
-					fill: var(--colorse1);
-				}
-			}
-			& svg:nth-child(5) {
-				position: relative;
-				& path:last-child {
-					fill: var(--colorpr);
-				}
 			}
 		}
 		&_text {
@@ -280,7 +260,6 @@
 	.next {
 		padding: 16px 0px;
 		& > svg {
-			fill: var(--colorpr);
 			margin: 0px auto;
 		}
 	}

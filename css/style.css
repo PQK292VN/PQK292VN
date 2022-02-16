@@ -8,7 +8,16 @@
   --colorse3: #b2b5ff;
 }
 
-[data-theme=dark] {
+html[data-theme=light] {
+  --wcolor: #ffffff;
+  --colorpr: #0007ab;
+  --colorse: #b2b5ff;
+  --colorse1: #4045be;
+  --colorse2: #6e74ff;
+  --colorse3: #b2b5ff;
+}
+
+html[data-theme=dark] {
   --wcolor: #1b1b1b;
   --colorpr: #00aeef;
   --colorse: #6e74ff;
@@ -76,6 +85,11 @@ h6 {
     gap: 20px;
     width: 100vw;
     height: 1000%;
+    background: var(--wcolor);
+  }
+
+  * > svg {
+    fill: var(--colorpr);
   }
 
   .header {
@@ -132,34 +146,59 @@ h6 {
     justify-content: center;
     align-items: center;
   }
-  .header-nav .change-page a svg {
-    position: relative;
-  }
-  .header-nav .change-page a svg path:first-child {
-    fill: var(--colorpr);
-  }
-  .header-nav .change-page a svg path:last-child {
-    fill: var(--colorse);
-  }
   .header-nav .change-page span {
     font-weight: 700;
     font-size: 1.25em;
     color: var(--colorpr);
   }
-  .header-nav .change-mode {
+  .header-nav .theme-switch-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    background: var(--wcolor);
-    border: 1px solid var(--colorpr);
-    box-sizing: border-box;
-    border-radius: 100%;
-    box-shadow: 0px 0px 5px rgba(204, 239, 252, 0.5);
+    position: absolute;
+    top: 25px;
+    right: 16px;
+    z-index: 1000;
   }
-  .header-nav .change-mode > svg > path {
-    fill: var(--colorpr);
+  .header-nav .theme-switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 56px;
+  }
+  .header-nav .theme-switch input {
+    display: none;
+  }
+  .header-nav .slider {
+    background-color: var(--colorse3);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+  }
+  .header-nav .slider:before {
+    background-color: var(--colorpr);
+    bottom: 1px;
+    content: "";
+    height: 26px;
+    left: 1px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
+  }
+  .header-nav input:checked + .slider {
+    background-color: var(--colorse3);
+  }
+  .header-nav input:checked + .slider:before {
+    transform: translateX(27px);
+  }
+  .header-nav .slider.round {
+    border-radius: 100rem;
+  }
+  .header-nav .slider.round:before {
+    border-radius: 50%;
   }
 
   .header-avatar {
@@ -195,7 +234,7 @@ h6 {
   .header-name > p {
     font-weight: 500;
     font-size: 1.25em;
-    color: #6e74ff;
+    color: var(--colorse);
     border-bottom: 2px solid var(--colorpr);
   }
 
@@ -229,12 +268,6 @@ h6 {
     flex-direction: column;
     gap: 24px;
     position: relative;
-  }
-  .header-proUp_svg > svg > path:first-child {
-    fill: var(--colorpr);
-  }
-  .header-proUp_svg > svg > path {
-    fill: var(--colorse);
   }
   .header-proUp_svg::after {
     position: absolute;
@@ -295,12 +328,6 @@ h6 {
     flex-direction: column;
     gap: 25px;
   }
-  .header-proDown_svg > svg > path:first-child {
-    fill: var(--colorpr);
-  }
-  .header-proDown_svg > svg > path {
-    fill: var(--colorse);
-  }
   .header-proDown_svg::after {
     position: absolute;
     content: "";
@@ -311,39 +338,6 @@ h6 {
     border-radius: 50%;
     background: var(--colorpr);
     box-shadow: 0px 45px var(--colorpr), 0px 89px var(--colorpr), 0px 133px var(--colorpr), 0px 180px var(--colorpr);
-  }
-  .header-proDown_svg svg:nth-child(2) {
-    position: relative;
-  }
-  .header-proDown_svg svg:nth-child(2) path:nth-child(1) {
-    fill: var(--colorpr);
-  }
-  .header-proDown_svg svg:nth-child(2) path:nth-child(2) {
-    fill: var(--colorse);
-  }
-  .header-proDown_svg svg:nth-child(2) path:nth-child(3) {
-    fill: var(--colorse3);
-  }
-  .header-proDown_svg svg:nth-child(2) path:nth-child(4) {
-    fill: var(--colorse2);
-  }
-  .header-proDown_svg svg:nth-child(2) path:nth-child(5) {
-    fill: var(--colorse1);
-  }
-  .header-proDown_svg svg:nth-child(3) {
-    position: relative;
-  }
-  .header-proDown_svg svg:nth-child(3) path:nth-child(1) {
-    fill: var(--colorpr);
-  }
-  .header-proDown_svg svg:nth-child(3) path:nth-child(3) {
-    fill: var(--colorse1);
-  }
-  .header-proDown_svg svg:nth-child(5) {
-    position: relative;
-  }
-  .header-proDown_svg svg:nth-child(5) path:last-child {
-    fill: var(--colorpr);
   }
   .header-proDown_text {
     display: flex;
@@ -360,7 +354,6 @@ h6 {
     padding: 16px 0px;
   }
   .next > svg {
-    fill: var(--colorpr);
     margin: 0px auto;
   }
 
