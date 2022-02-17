@@ -1,0 +1,19 @@
+@media screen and (min-width: 767.98px) {
+	body {
+		position: relative;
+		&::after {
+			padding: 60px;
+			position: absolute;
+			content: 'Trang Web hiện chỉ hoạt động trên di động';
+			font-size: 3rem;
+			font-weight: 900;
+			color: var(--colorpr);
+		}
+	}
+	.header {
+		display: none;
+	}
+	.contents {
+		display: none;
+	}
+}
