@@ -160,16 +160,16 @@
 		grid-template-columns: 25px auto;
 		gap: 10px;
 		margin: 0 auto;
-		padding: 30px 16px 16px 16px;
+		padding: 30px 16px 0px 16px;
 		border-left: 2px solid var(--colorpr);
-		border-bottom-left-radius: 10px;
 		&::before {
 			position: absolute;
 			content: '';
-			width: 10px;
-			height: 15px;
-			left: 0px;
-			bottom: 0px;
+			width: 12px;
+			height: 12px;
+			left: -2px;
+			bottom: -12px;
+			border-left: 2px solid var(--colorpr);
 			border-bottom: 2px solid var(--colorpr);
 			border-bottom-left-radius: 10px;
 		}
@@ -178,7 +178,7 @@
 			flex-direction: column;
 			gap: 24px;
 			position: relative;
-			&::after {
+			&::before {
 				position: absolute;
 				content: '';
 				width: 8px;
@@ -187,7 +187,7 @@
 				top: 10px;
 				border-radius: 50%;
 				background: var(--colorpr);
-				box-shadow: 0px 50px 0px var(--colorpr), 0px 100px 0px var(--colorpr);
+				box-shadow: 0px 48px 0px var(--colorpr), 0px 96px 0px var(--colorpr);
 			}
 		}
 		&_text {
@@ -201,20 +201,19 @@
 		}
 	}
 	.header-proDown {
-		display: grid;
 		position: relative;
-		grid-template-columns: 25px auto;
-		gap: 10px;
+		width: 100%;
+		height: 100%;
 		padding: 0px 16px 16px 16px;
-		margin-top: 16px;
+		margin-top: 27px;
 		margin-left: 20px;
 		border-left: 2px solid var(--colorpr);
 		&::before {
 			position: absolute;
 			content: '';
-			width: 10px;
-			height: 30px;
-			left: -10px;
+			width: 12px;
+			height: 20px;
+			left: -12px;
 			top: -17px;
 			border-top: 2px solid var(--colorpr);
 			border-right: 2px solid var(--colorpr);
@@ -231,30 +230,42 @@
 			border-right: 2px solid var(--colorpr);
 			border-bottom-right-radius: 10px;
 		}
-		&_svg {
-			display: flex;
-			flex-direction: column;
-			gap: 25px;
-			&::after {
+		&-item {
+			position: relative;
+			display: grid;
+			grid-template-columns: 25px auto;
+			align-content: space-between;
+			align-items: center;
+			justify-content: start;
+			justify-items: start;
+			gap: 10px 16px;
+			& > a,
+			span {
+				position: relative;
+				@include n20PX;
+				color: var(--colorpr);
+				text-decoration: none;
+			}
+			& > a::after {
+				position: absolute;
+				content: 'goto';
+				top: 0;
+				padding-left: 5px;
+				font-size: 10px;
+				font-style: italic;
+				color: var(--colorse);
+			}
+			&::before {
 				position: absolute;
 				content: '';
 				width: 8px;
 				height: 8px;
-				left: -4px;
-				top: 8px;
+				left: -20px;
+				top: 10px;
 				border-radius: 50%;
 				background: var(--colorpr);
-				box-shadow: 0px 45px var(--colorpr), 0px 89px var(--colorpr),
-					0px 133px var(--colorpr), 0px 180px var(--colorpr);
-			}
-		}
-		&_text {
-			display: flex;
-			flex-direction: column;
-			gap: 14px;
-			& > span {
-				@include n20PX;
-				color: var(--colorpr);
+				box-shadow: 0px 40px 0px var(--colorpr), 0px 80px 0px var(--colorpr),
+					0px 120px 0px var(--colorpr), 0px 160px 0px var(--colorpr);
 			}
 		}
 	}
