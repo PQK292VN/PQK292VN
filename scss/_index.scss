@@ -1,4 +1,10 @@
-@media screen and (min-width: 374.98px) {
+@media screen and (max-width: 320px) {
+	body {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 767.98px) {
 	body {
 		display: flex;
 		flex-direction: column;
