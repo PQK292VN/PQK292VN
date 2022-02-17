@@ -324,7 +324,7 @@
 	.skill {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 30px;
 		padding: 16px 0px;
 		box-sizing: border-box;
 		&-title {
@@ -340,6 +340,19 @@
 			gap: 20px;
 			align-items: center;
 			justify-content: center;
+			&::before {
+				position: absolute;
+				content: '';
+				width: 80%;
+				height: 160%;
+				top: -30%;
+				left: 10%;
+				border: 1px solid var(--colorpr);
+				border-radius: 5px;
+				background-color: var(--iconbg);
+				box-shadow: inset 0px 0px 5px var(--colorpr);
+				z-index: -1;
+			}
 		}
 		&-sub {
 			@include r14PX;

@@ -16,7 +16,7 @@
   --colorse1: #66cef5;
   --colorse2: #99dff9;
   --colorse3: #cceffc;
-  --iconbg: #cceffc;
+  --iconbg: #ffffff;
 }
 
 *,
@@ -415,7 +415,7 @@ h6 {
   .skill {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     padding: 16px 0px;
     box-sizing: border-box;
   }
@@ -433,6 +433,19 @@ h6 {
     gap: 20px;
     align-items: center;
     justify-content: center;
+  }
+  .skill-icon::before {
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 160%;
+    top: -30%;
+    left: 10%;
+    border: 1px solid var(--colorpr);
+    border-radius: 5px;
+    background-color: var(--iconbg);
+    box-shadow: inset 0px 0px 5px var(--colorpr);
+    z-index: -1;
   }
   .skill-sub {
     font-weight: 400;
