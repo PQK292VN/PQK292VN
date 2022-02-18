@@ -10,6 +10,10 @@
 	font-weight: 700;
 	font-size: 1.875em;
 }
+@mixin b35PX {
+	font-weight: 700;
+	font-size: 2.1875em;
+}
 @mixin n20PX {
 	font-weight: 500;
 	font-size: 1.25em;
@@ -21,6 +25,10 @@
 @mixin r20PX {
 	font-weight: 400;
 	font-size: 1.25em;
+}
+@mixin n30PX {
+	font-weight: 400;
+	font-size: 1.875em;
 }
 @mixin r14PX {
 	font-weight: 400;

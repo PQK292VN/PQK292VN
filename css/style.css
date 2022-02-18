@@ -245,10 +245,6 @@ h6 {
 
   .header-proUp {
     position: relative;
-    display: grid;
-    grid-template-columns: 25px auto;
-    gap: 10px;
-    margin: 0 auto;
     padding: 30px 16px 0px 16px;
     border-left: 2px solid var(--colorpr);
   }
@@ -263,13 +259,18 @@ h6 {
     border-bottom: 2px solid var(--colorpr);
     border-bottom-left-radius: 10px;
   }
-  .header-proUp_svg {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  .header-proUp-item {
+    display: grid;
+    grid-template-columns: 35px auto;
+    gap: 16px 6px;
     position: relative;
   }
-  .header-proUp_svg::before {
+  .header-proUp-item > span {
+    font-weight: 500;
+    font-size: 1.25em;
+    color: var(--colorpr);
+  }
+  .header-proUp-item::before {
     position: absolute;
     content: "";
     width: 8px;
@@ -278,17 +279,7 @@ h6 {
     top: 10px;
     border-radius: 50%;
     background: var(--colorpr);
-    box-shadow: 0px 48px 0px var(--colorpr), 0px 96px 0px var(--colorpr);
-  }
-  .header-proUp_text {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  .header-proUp_text > span {
-    font-weight: 500;
-    font-size: 1.25em;
-    color: var(--colorpr);
+    box-shadow: 0px 46px 0px var(--colorpr), 0px 96px 0px var(--colorpr);
   }
 
   .header-proDown {
@@ -566,20 +557,235 @@ h6 {
   }
 }
 @media screen and (min-width: 768px) {
+  * > svg {
+    fill: var(--colorpr);
+    width: 40px;
+    height: 40px;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
   body {
     position: relative;
+    background: var(--wcolor);
   }
   body::after {
-    padding: 60px;
     position: absolute;
-    content: "Trang Web hiện chỉ hoạt động trên di động";
+    content: "Dữ liệu đang được cập nhật ^-^";
+    width: 100vw;
+    text-align: center;
     font-size: 3rem;
     font-weight: 900;
     color: var(--colorpr);
   }
 
   .header {
+    position: relative;
+  }
+
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 0px 50px;
+    width: 100vw;
+    height: 100px;
+    margin-bottom: 50px;
+    background-color: var(--colorpr);
+  }
+  .header-nav .change-page {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-nav .change-page svg {
+    fill: var(--iconbg) !important;
+  }
+  .header-nav .change-page > span {
+    font-weight: 700;
+    font-size: 1.5625em;
+    text-transform: uppercase;
+    color: var(--iconbg);
+  }
+  .header-nav .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+  }
+  .header-nav .theme-switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 56px;
+  }
+  .header-nav .theme-switch input {
     display: none;
+  }
+  .header-nav .slider {
+    background-color: var(--colorse3);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+  }
+  .header-nav .slider:before {
+    background-color: var(--colorpr);
+    bottom: 1px;
+    content: "";
+    height: 26px;
+    left: 1px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
+  }
+  .header-nav input:checked + .slider {
+    background-color: var(--colorse3);
+  }
+  .header-nav input:checked + .slider:before {
+    transform: translateX(27px);
+  }
+  .header-nav .slider.round {
+    border-radius: 100rem;
+  }
+  .header-nav .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .change-page {
+    display: flex;
+  }
+
+  .header-avatar {
+    grid-area: avt;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border: 10px solid var(--colorpr);
+    border-radius: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .header-name {
+    position: absolute;
+    top: 150px;
+    width: calc(50% - 150px);
+    padding: 0px 50px;
+    text-align: right;
+  }
+  .header-name > h1 {
+    font-weight: 700;
+    font-size: 2.1875em;
+    color: var(--colorpr);
+    text-transform: uppercase;
+  }
+  .header-name > p {
+    font-weight: 400;
+    font-size: 1.875em;
+    color: var(--colorse);
+    text-transform: uppercase;
+  }
+
+  .header-profile {
+    position: absolute;
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr 400px 1fr;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    top: 160px;
+  }
+
+  .header-proUp {
+    padding-top: 100px;
+    grid-column: 1;
+  }
+  .header-proUp-item {
+    display: grid;
+    grid-template-columns: 50% 40px;
+    grid-template-areas: "l1 r1" "l2 r2" "l3 r3";
+    justify-items: end;
+    align-items: center;
+    justify-content: end;
+    text-align: right;
+    gap: 20px;
+  }
+  .header-proUp-item > svg:nth-child(1) {
+    grid-area: r1;
+  }
+  .header-proUp-item > svg:nth-child(2) {
+    grid-area: r2;
+  }
+  .header-proUp-item > svg:nth-child(3) {
+    grid-area: r3;
+  }
+  .header-proUp-item > span {
+    font-weight: 700;
+    font-size: 1.25em;
+    color: var(--colorpr);
+  }
+  .header-proUp-item > span:nth-child(1) {
+    grid-area: l1;
+  }
+  .header-proUp-item > span:nth-child(2) {
+    grid-area: l2;
+  }
+  .header-proUp-item > span:nth-child(3) {
+    grid-area: l3;
+  }
+
+  .header-proDown {
+    grid-column: 3;
+  }
+  .header-proDown-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: space-between;
+    align-items: center;
+    justify-content: start;
+    justify-items: start;
+    gap: 20px 16px;
+  }
+  .header-proDown-item > a,
+.header-proDown-item span {
+    position: relative;
+    font-weight: 700;
+    font-size: 1.25em;
+    color: var(--colorpr);
+    text-decoration: none;
+  }
+
+  .next {
+    display: inline-block;
+    position: relative;
+    width: 100vw;
+    padding: 50px;
+  }
+  .next::before {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 100vw;
+    border-bottom: 5px solid var(--colorpr);
+    z-index: -1;
+  }
+  .next > svg {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: var(--wcolor);
+    border-radius: 100%;
+    border: 5px solid var(--colorpr);
   }
 
   .contents {

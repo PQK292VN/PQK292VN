@@ -162,10 +162,6 @@
 	}
 	.header-proUp {
 		position: relative;
-		display: grid;
-		grid-template-columns: 25px auto;
-		gap: 10px;
-		margin: 0 auto;
 		padding: 30px 16px 0px 16px;
 		border-left: 2px solid var(--colorpr);
 		&::before {
@@ -179,11 +175,15 @@
 			border-bottom: 2px solid var(--colorpr);
 			border-bottom-left-radius: 10px;
 		}
-		&_svg {
-			display: flex;
-			flex-direction: column;
-			gap: 24px;
+		&-item {
+			display: grid;
+			grid-template-columns: 35px auto;
+			gap: 16px 6px;
 			position: relative;
+			& > span {
+				@include n20PX;
+				color: var(--colorpr);
+			}
 			&::before {
 				position: absolute;
 				content: '';
@@ -193,16 +193,7 @@
 				top: 10px;
 				border-radius: 50%;
 				background: var(--colorpr);
-				box-shadow: 0px 48px 0px var(--colorpr), 0px 96px 0px var(--colorpr);
-			}
-		}
-		&_text {
-			display: flex;
-			flex-direction: column;
-			gap: 18px;
-			& > span {
-				@include n20PX;
-				color: var(--colorpr);
+				box-shadow: 0px 46px 0px var(--colorpr), 0px 96px 0px var(--colorpr);
 			}
 		}
 	}

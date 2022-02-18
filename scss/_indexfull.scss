@@ -1,17 +1,219 @@
 @media screen and (min-width: 768px) {
+	* > svg {
+		fill: var(--colorpr);
+		width: 40px;
+		height: 40px;
+	}
+	a {
+		cursor: pointer;
+	}
 	body {
 		position: relative;
+		background: var(--wcolor);
 		&::after {
-			padding: 60px;
 			position: absolute;
-			content: 'Trang Web hiện chỉ hoạt động trên di động';
+			content: 'Dữ liệu đang được cập nhật ^-^';
+			width: 100vw;
+			text-align: center;
 			font-size: 3rem;
 			font-weight: 900;
 			color: var(--colorpr);
 		}
 	}
 	.header {
-		display: none;
+		position: relative;
+	}
+	.header-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		align-content: center;
+		padding: 0px 50px;
+		width: 100vw;
+		height: 100px;
+		margin-bottom: 50px;
+		background-color: var(--colorpr);
+		.change-page {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			& svg {
+				fill: var(--iconbg) !important;
+			}
+			& > span {
+				@include b25PX;
+				text-transform: uppercase;
+				color: var(--iconbg);
+			}
+		}
+		.theme-switch-wrapper {
+			display: flex;
+			align-items: center;
+			z-index: 1000;
+		}
+		.theme-switch {
+			display: inline-block;
+			height: 28px;
+			position: relative;
+			width: 56px;
+		}
+		.theme-switch input {
+			display: none;
+		}
+		.slider {
+			background-color: var(--colorse3);
+			bottom: 0;
+			cursor: pointer;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			transition: 0.4s;
+			&:before {
+				background-color: var(--colorpr);
+				bottom: 1px;
+				content: '';
+				height: 26px;
+				left: 1px;
+				position: absolute;
+				transition: 0.4s;
+				width: 26px;
+			}
+		}
+		input:checked + .slider {
+			background-color: var(--colorse3);
+		}
+		input:checked + .slider:before {
+			transform: translateX(27px);
+		}
+		.slider.round {
+			border-radius: 100rem;
+		}
+		.slider.round:before {
+			border-radius: 50%;
+		}
+	}
+	.change-page {
+		display: flex;
+	}
+	.header-avatar {
+		grid-area: avt;
+		width: 300px;
+		height: 300px;
+		margin: 0 auto;
+		border: 10px solid var(--colorpr);
+		border-radius: 25px;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
+	.header-name {
+		position: absolute;
+		top: 150px;
+		width: calc(50% - 150px);
+		padding: 0px 50px;
+		text-align: right;
+		& > h1 {
+			@include b35PX;
+			color: var(--colorpr);
+			text-transform: uppercase;
+		}
+		& > p {
+			@include n30PX;
+			color: var(--colorse);
+			text-transform: uppercase;
+		}
+	}
+	.header-profile {
+		position: absolute;
+		display: grid;
+		width: 100vw;
+		grid-template-columns: 1fr 400px 1fr;
+		margin: 0 auto;
+		justify-content: center;
+		align-items: center;
+		top: 160px;
+	}
+	.header-proUp {
+		padding-top: 100px;
+		grid-column: 1;
+		&-item {
+			display: grid;
+			grid-template-columns: 50% 40px;
+			grid-template-areas: 'l1 r1' 'l2 r2' 'l3 r3';
+			justify-items: end;
+			align-items: center;
+			justify-content: end;
+			text-align: right;
+			gap: 20px;
+			& > svg {
+				&:nth-child(1) {
+					grid-area: r1;
+				}
+				&:nth-child(2) {
+					grid-area: r2;
+				}
+				&:nth-child(3) {
+					grid-area: r3;
+				}
+			}
+			& > span {
+				@include b20PX;
+				color: var(--colorpr);
+				&:nth-child(1) {
+					grid-area: l1;
+				}
+				&:nth-child(2) {
+					grid-area: l2;
+				}
+				&:nth-child(3) {
+					grid-area: l3;
+				}
+			}
+		}
+	}
+	.header-proDown {
+		grid-column: 3;
+		&-item {
+			position: relative;
+			display: grid;
+			grid-template-columns: auto auto;
+			align-content: space-between;
+			align-items: center;
+			justify-content: start;
+			justify-items: start;
+			gap: 20px 16px;
+			& > a,
+			span {
+				position: relative;
+				@include b20PX;
+				color: var(--colorpr);
+				text-decoration: none;
+			}
+		}
+	}
+	.next {
+		display: inline-block;
+		position: relative;
+		width: 100vw;
+		padding: 50px;
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 50%;
+			left: 0;
+			width: 100vw;
+			border-bottom: 5px solid var(--colorpr);
+			z-index: -1;
+		}
+		& > svg {
+			position: relative;
+			width: 100px;
+			height: 100px;
+			margin: 0 auto;
+			background-color: var(--wcolor);
+			border-radius: 100%;
+			border: 5px solid var(--colorpr);
+		}
 	}
 	.contents {
 		display: none;
